@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ltc-white: hsl(0 0% 100%);
+  --color-ltc-cream: hsl(58 74% 91%);
+  --color-ltc-green: hsl(126 100% 28%);
+  --color-ltc-coral: hsl(4 97% 58%);
+  --color-ltc-black: hsl(0 0% 8%);
+  --color-ltc-muted: hsl(0 0% 40%);
+
+  --font-display: "Imbue", Georgia, serif;
+  --font-body: "Nunito Sans", system-ui, sans-serif;
+  --font-accent: "Readex Pro", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ltc-cream text-ltc-black antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .ltc-marquee {
+    animation: marquee 28s linear infinite;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .ltc-wave {
+    display: inline-block;
+    animation: wave 2.5s ease-in-out infinite;
+  }
+
+  @keyframes wave {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(8deg);
+    }
+    75% {
+      transform: rotate(-8deg);
+    }
+  }
+}
